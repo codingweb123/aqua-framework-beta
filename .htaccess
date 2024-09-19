@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [NC,L,QSA]
+Options -Indexes
+<Files "db.sqlite">
+    Order Allow,Deny
+    Deny from all
+</Files>
