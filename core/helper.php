@@ -17,7 +17,7 @@ function view(string $viewName, $vars = null): void
     $viewNameMd5 = md5((str_contains($viewName, ".") ? str_replace(".", DIRECTORY_SEPARATOR, $viewName) : $viewName).".aq.php");
     $path = getcwd() . DIRECTORY_SEPARATOR . "resources" . DIRECTORY_SEPARATOR . "compiled" . DIRECTORY_SEPARATOR . "$viewNameMd5.aq.php";
     if (file_exists($path)) {
-        if (!$vars) include_once $path;
+        if (!$vars) include $path;
         else {
             $__AQUA_VARIABLES = [];
             extract($vars);
@@ -25,7 +25,7 @@ function view(string $viewName, $vars = null): void
                 if ($key == "slot") $__AQUA_VARIABLES[$key][$var[0]] = $var[1];
                 else $__AQUA_VARIABLES[$key] = $var;
             }
-            include_once $path;
+            include $path;
         }
     } else ddd("View Error: \nView $viewName (DEV: $viewNameMd5) cannot be loaded\nFile not found resources/views/$viewName.aq.php ");
 }
