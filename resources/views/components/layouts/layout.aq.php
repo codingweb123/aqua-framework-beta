@@ -7,7 +7,6 @@
     <title>{{ PaperWork::returnVars($config)["PROJECT_NAME"] }}</title>
     <link rel="shortcut icon" href="{{ resource('public/img/logo.png') }}" type="image/x-icon" />
     <link rel="canonical" href="{{ resource() }}" />
-    <link rel="stylesheet" href="{{ resource('public/css/main.css') }}" />
     <link rel="stylesheet" href="{{ resource('public/css/style.css') }}" />
 </head>
 <body>
